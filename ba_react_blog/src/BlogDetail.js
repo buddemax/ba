@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import blogData from './blogData.json';
-import NotFound from './NotFound';
 
 function renderMarkdown(md) {
   // Very basic markdown renderer: headings and paragraphs
@@ -20,7 +19,6 @@ const BlogDetail = () => {
   const { id } = useParams();
   const post = blogData.find(p => String(p.id) === id);
 
-  if (!post) return <NotFound />;
 
   return (
     <div style={{ padding: '20px', fontFamily: 'system-ui, sans-serif' }}>
