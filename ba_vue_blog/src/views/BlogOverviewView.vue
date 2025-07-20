@@ -5,6 +5,13 @@ import postsData from '../assets/posts.json'
 
 const posts = ref([])
 
+// Function to get preview text (same as React implementation)
+function getPreview(content) {
+  // Get first 180 chars or until first section break
+  const plain = content.replace(/[#*\n]/g, ' ').replace(/\s+/g, ' ');
+  return plain.slice(0, 180) + (plain.length > 180 ? '...' : '');
+}
+
 onMounted(() => {
   posts.value = postsData // Show all posts from the JSON file
 })
@@ -16,7 +23,7 @@ onMounted(() => {
     <section class="hero">
       <div class="hero-image">
         <img 
-          src="https://picsum.photos/1200/400?random=1&grayscale" 
+          src="https://picsum.photos/1200/400?grayscale&blur=1" 
           alt="Blog Hero" 
           class="hero-img"
         />
@@ -26,6 +33,7 @@ onMounted(() => {
     <!-- Blog Posts Section -->
     <section class="blog-posts">
       <div class="container">
+        <h1 class="section-title">Blog Beiträge</h1>
         
         <div class="posts-grid">
           <article 
@@ -35,7 +43,7 @@ onMounted(() => {
           >
             <div class="post-image">
               <img 
-                :src="`https://picsum.photos/400/250?random=${post.id}`" 
+                :src="`https://picsum.photos/seed/${post.id}a/400/200`" 
                 :alt="post.title"
                 class="post-img"
               />
@@ -44,7 +52,7 @@ onMounted(() => {
             <div class="post-content">
               <h2 class="post-title">{{ post.title }}</h2>
               <p class="post-excerpt">
-                {{ post.content.substring(0, 120) }}...
+                {{ getPreview(post.content) }}
               </p>
               <RouterLink 
                 :to="`/blog/${post.id}`" 
@@ -69,9 +77,10 @@ onMounted(() => {
 /* Hero Section */
 .hero {
   width: 100%;
-  height: 300px;
+  height: 240px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 20px;
 }
 
 .hero-image {
@@ -83,18 +92,16 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%);
 }
 
 /* Blog Posts Section */
 .blog-posts {
-  padding: 60px 0;
+  padding: 20px;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .section-title {
@@ -102,29 +109,33 @@ onMounted(() => {
   font-size: 2.5rem;
   font-weight: 700;
   color: #333;
-  margin-bottom: 50px;
-  font-family: 'Arial', sans-serif;
+  margin-bottom: 30px;
+  font-family: system-ui, sans-serif;
 }
 
 /* Posts Grid */
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Post Cards */
 .post-card {
   background: white;
-  border-radius: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   overflow: hidden;
+  padding: 15px;
 }
 
 .post-image {
   width: 100%;
-  height: 200px;
+  height: 150px;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .post-img {
@@ -134,33 +145,33 @@ onMounted(() => {
 }
 
 .post-content {
-  padding: 24px;
+  padding: 0;
 }
 
 .post-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 12px;
+  margin: 0 0 10px 0;
   line-height: 1.4;
-  font-family: 'Arial', sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 .post-excerpt {
   color: #666;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 0.95rem;
-  font-family: 'Arial', sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 .read-more-btn {
-  color: #007bff;
+  color: blue;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
   transition: color 0.3s ease;
-  font-family: 'Arial', sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 .read-more-btn:hover {

@@ -55,7 +55,7 @@ export class BlogDetailComponent implements OnInit {
     if (postId === '1') {
       return 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=800&h=400&fit=crop&crop=center';
     }
-    return `https://picsum.photos/800/400?random=${postId}`;
+    return `https://picsum.photos/seed/${postId}b/800/400`;
   }
 
   formatContent(content: string): string {

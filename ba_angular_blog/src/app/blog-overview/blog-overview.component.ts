@@ -50,12 +50,12 @@ export class BlogOverviewComponent implements OnInit {
   }
 
   getImageUrl(cover: string): string {
-    // Convert relative path to external image service
+    // Convert relative path to external image service with seed for consistency
     const postId = cover.match(/post(\d+)\.jpg/)?.[1] || '1';
-    return `https://picsum.photos/400/200?random=${postId}`;
+    return `https://picsum.photos/seed/${postId}a/400/200`;
   }
 
   getHeroImageUrl(): string {
-    return 'https://picsum.photos/1200/400?random=hero';
+    return 'https://picsum.photos/1200/400?grayscale&blur=1';
   }
 } 
