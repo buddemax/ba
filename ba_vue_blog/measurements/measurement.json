@@ -1,0 +1,287 @@
+{
+    "Berichte": [
+      {
+        "ID": 1,
+        "Leistung": {
+          "Score": 64
+        },
+        "Messwerte": {
+          "FirstContentfulPaint": {
+            "Wert": "1,9 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,3 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "2,6 s",
+            "Status": "rot"
+          }
+        }
+      },
+      {
+        "ID": 2,
+        "Leistung": {
+            "Score": 63
+        },
+        "Messwerte": {
+            "FirstContentfulPaint": {
+            "Wert": "2,1 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,6 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "2,6 s",
+            "Status": "rot"
+          }
+        }
+      },
+      {
+        "ID": 3,
+        "Leistung": {
+          "Score": 62
+        },
+        "Messwerte": {
+          "FirstContentfulPaint": {
+            "Wert": "1,9 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,3 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "3,1 s",
+            "Status": "rot"
+          }
+        }
+      },
+      {
+        "ID": 4,
+        "Leistung": {
+          "Score": 66
+        },
+        "Messwerte": {
+          "FirstContentfulPaint": {
+            "Wert": "1,5 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,6 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "2,3 s",
+            "Status": "rot"
+          }
+        }
+      },
+      {
+        "ID": 5,
+        "Leistung": {
+          "Score": 63
+        },
+        "Messwerte": {
+          "FirstContentfulPaint": {
+            "Wert": "2,0 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,6 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "2,4 s",
+            "Status": "rot"
+          }
+        }
+      },
+      {
+        "ID": 6,
+        "Leistung": {
+          "Score": 64
+        },
+        "Messwerte": {
+          "FirstContentfulPaint": {
+            "Wert": "2,1 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,4 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "2,4 s",
+            "Status": "rot"
+          }
+        }
+      },
+      {
+        "ID": 7,
+        "Leistung": {
+            "Score": 63
+        },
+        "Messwerte": {
+            "FirstContentfulPaint": {
+            "Wert": "2,1 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,6 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "2,5 s",
+            "Status": "rot"
+          }
+        }
+      },
+      {
+        "ID": 8,
+        "Leistung": {
+          "Score": 63
+        },
+        "Messwerte": {
+          "FirstContentfulPaint": {
+            "Wert": "2,1 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,6 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "2,6 s",
+            "Status": "rot"
+          }
+        }
+      },
+      {
+        "ID": 9,
+        "Leistung": {
+            "Score": 63
+        },
+        "Messwerte": {
+            "FirstContentfulPaint": {
+            "Wert": "2,1 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,6 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "2,7 s",
+            "Status": "rot"
+          }
+        }
+      },
+      {
+        "ID": 10,
+        "Leistung": {
+          "Score": 64
+        },
+        "Messwerte": {
+          "FirstContentfulPaint": {
+            "Wert": "2,0 s",
+            "Status": "rot"
+          },
+          "LargestContentfulPaint": {
+            "Wert": "5,5 s",
+            "Status": "rot"
+          },
+          "TotalBlockingTime": {
+            "Wert": "0 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "SpeedIndex": {
+            "Wert": "2,4 s",
+            "Status": "rot"
+          }
+        }
+      }
+    ]
+  }
+  
+
+  
