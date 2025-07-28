@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
@@ -21,9 +21,14 @@ export interface BlogPost {
   providedIn: 'root'
 })
 export class BlogService {
+  private http = inject(HttpClient);
+
   private posts: BlogPost[] = [];
 
-  constructor(private http: HttpClient) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   getPosts(): Observable<BlogPost[]> {
     if (this.posts.length > 0) {

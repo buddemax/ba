@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:build": "docker build -t vue-blog .",
+    "docker:run": "docker run -p 3000:80 vue-blog",
+    "docker:compose": "docker-compose up -d",
+    "lighthouse:test": "chmod +x lighthouse-test.sh && ./lighthouse-test.sh",
+    "lighthouse:install": "npm install -g @lhci/cli",
+    "lighthouse:run": "lhci autorun"
   },
   "dependencies": {
     "vue": "^3.5.17",
@@ -15,6 +21,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.0",
     "vite": "^7.0.0",
-    "vite-plugin-vue-devtools": "^7.7.7"
+    "vite-plugin-vue-devtools": "^7.7.7",
+    "@lhci/cli": "^0.12.0"
   }
 }

@@ -1,25 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService, BlogPost } from '../services/blog.service';
 
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.css'
 })
 export class BlogDetailComponent implements OnInit {
+  private blogService = inject(BlogService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+
   post: BlogPost | null = null;
   loading = true;
   notFound = false;
 
-  constructor(
-    private blogService: BlogService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -49,12 +52,7 @@ export class BlogDetailComponent implements OnInit {
     });
   }
 
-  getImageUrl(cover: string): string {
-    const postId = cover.match(/post(\d+)\.jpg/)?.[1] || '1';
-    // For the first post, use a specific image that looks like night sky
-    if (postId === '1') {
-      return 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=800&h=400&fit=crop&crop=center';
-    }
+  getImageUrl(postId: number): string {
     return `https://picsum.photos/seed/${postId}b/800/400`;
   }
 

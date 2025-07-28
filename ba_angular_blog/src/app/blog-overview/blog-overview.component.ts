@@ -1,21 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+
 import { RouterLink } from '@angular/router';
 import { BlogService, BlogPost } from '../services/blog.service';
 
 @Component({
   selector: 'app-blog-overview',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './blog-overview.component.html',
   styleUrl: './blog-overview.component.css'
 })
 export class BlogOverviewComponent implements OnInit {
+  private blogService = inject(BlogService);
+
   posts: BlogPost[] = [];
   loading = true;
   error = false;
 
-  constructor(private blogService: BlogService) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   ngOnInit(): void {
     console.log('BlogOverviewComponent initialized');
@@ -49,9 +54,7 @@ export class BlogOverviewComponent implements OnInit {
     return firstParagraph.length > 200 ? firstParagraph.substring(0, 200) + '...' : firstParagraph;
   }
 
-  getImageUrl(cover: string): string {
-    // Convert relative path to external image service with seed for consistency
-    const postId = cover.match(/post(\d+)\.jpg/)?.[1] || '1';
+  getImageUrl(postId: number): string {
     return `https://picsum.photos/seed/${postId}a/400/200`;
   }
 

@@ -63,7 +63,7 @@ const formatContent = (content) => {
         <!-- Post Image -->
         <div class="post-image">
           <img 
-            :src="`https://picsum.photos/800/400?random=${post.id}`" 
+            :src="`https://picsum.photos/seed/${post.id}b/800/400`" 
             :alt="post.title"
             class="post-img"
           />

@@ -7,46 +7,53 @@
   </div>
 
   <!-- Loading State -->
-  <div *ngIf="loading" class="loading-container">
-    <div class="loading-spinner"></div>
-    <p>Lade Artikel...</p>
-  </div>
+  @if (loading) {
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Lade Artikel...</p>
+    </div>
+  }
 
   <!-- 404 Not Found -->
-  <div *ngIf="notFound" class="not-found">
-    <h1>404 - Artikel nicht gefunden</h1>
-    <p>Der angeforderte Artikel konnte nicht gefunden werden.</p>
-    <button (click)="goBack()" class="back-button">
-      Zurück zur Startseite
-    </button>
-  </div>
+  @if (notFound) {
+    <div class="not-found">
+      <h1>404 - Artikel nicht gefunden</h1>
+      <p>Der angeforderte Artikel konnte nicht gefunden werden.</p>
+      <button (click)="goBack()" class="back-button">
+        Zurück zur Startseite
+      </button>
+    </div>
+  }
 
   <!-- Blog Post Content -->
-  <article *ngIf="post && !loading" class="post-content">
-    <header class="post-header">
-      <h1 class="post-title">{{ post.title }}</h1>
-    </header>
-
-    <div class="post-image">
-      <img [src]="getImageUrl(post.cover)" [alt]="post.title">
-    </div>
-
-    <div class="post-body" [innerHTML]="formatContent(post.content)"></div>
-
-    <!-- Comments Section -->
-    <section class="comments-section">
-      <h2>Kommentare</h2>
-      
-      <div *ngIf="post.comments.length === 0" class="no-comments">
-        <p>Noch keine Kommentare vorhanden.</p>
+  @if (post && !loading) {
+    <article class="post-content">
+      <header class="post-header">
+        <h1 class="post-title">{{ post.title }}</h1>
+      </header>
+      <div class="post-image">
+        <img [src]="getImageUrl(post.id)" [alt]="post.title">
       </div>
-
-      <div *ngIf="post.comments.length > 0" class="comments-list">
-        <div *ngFor="let comment of post.comments" class="comment">
-          <span class="comment-author">{{ comment.author }}</span>
-          <span class="comment-text">{{ comment.text }}</span>
-        </div>
-      </div>
-    </section>
-  </article>
-</div> 
+      <div class="post-body" [innerHTML]="formatContent(post.content)"></div>
+      <!-- Comments Section -->
+      <section class="comments-section">
+        <h2>Kommentare</h2>
+        @if (post.comments.length === 0) {
+          <div class="no-comments">
+            <p>Noch keine Kommentare vorhanden.</p>
+          </div>
+        }
+        @if (post.comments.length > 0) {
+          <div class="comments-list">
+            @for (comment of post.comments; track comment) {
+              <div class="comment">
+                <span class="comment-author">{{ comment.author }}</span>
+                <span class="comment-text">{{ comment.text }}</span>
+              </div>
+            }
+          </div>
+        }
+      </section>
+    </article>
+  }
+</div>

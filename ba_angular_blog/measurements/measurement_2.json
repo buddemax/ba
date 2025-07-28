@@ -27,7 +27,7 @@
         },
         "Messwerte": {
           "TotalBlockingTime": {
-            "Wert": "120 ms",
+            "Wert": "110 ms",
             "Status": "grün"
           },
           "CumulativeLayoutShift": {
@@ -35,7 +35,7 @@
             "Status": "grün"
           },
           "InteractionToNextPaint": {
-            "Wert": "80 ms",
+            "Wert": "70 ms",
             "Status": "grün"
           }
         }
@@ -47,7 +47,7 @@
         },
         "Messwerte": {
           "TotalBlockingTime": {
-            "Wert": "20 ms",
+            "Wert": "110 ms",
             "Status": "grün"
           },
           "CumulativeLayoutShift": {
@@ -55,7 +55,7 @@
             "Status": "grün"
           },
           "InteractionToNextPaint": {
-            "Wert": "60 ms",
+            "Wert": "80 ms",
             "Status": "grün"
           }
         }
@@ -67,7 +67,7 @@
         },
         "Messwerte": {
           "TotalBlockingTime": {
-            "Wert": "130 ms",
+            "Wert": "120 ms",
             "Status": "grün"
           },
           "CumulativeLayoutShift": {
@@ -75,7 +75,7 @@
             "Status": "grün"
           },
           "InteractionToNextPaint": {
-            "Wert": "80 ms",
+            "Wert": "70 ms",
             "Status": "grün"
           }
         }
@@ -95,7 +95,7 @@
             "Status": "grün"
           },
           "InteractionToNextPaint": {
-            "Wert": "70 ms",
+            "Wert": "60 ms",
             "Status": "grün"
           }
         }
@@ -107,7 +107,7 @@
         },
         "Messwerte": {
           "TotalBlockingTime": {
-            "Wert": "100 ms",
+            "Wert": "110 ms",
             "Status": "grün"
           },
           "CumulativeLayoutShift": {
@@ -115,39 +115,19 @@
             "Status": "grün"
           },
           "InteractionToNextPaint": {
-            "Wert": "90 ms",
+            "Wert": "60 ms",
             "Status": "grün"
           }
         }
       },
       {
-        "ID": 8,
+        "ID": 7,
         "Leistung": {
           "Score": "21/22"
         },
         "Messwerte": {
           "TotalBlockingTime": {
-            "Wert": "100 ms",
-            "Status": "grün"
-          },
-          "CumulativeLayoutShift": {
-            "Wert": "0",
-            "Status": "grün"
-          },
-          "InteractionToNextPaint": {
-            "Wert": "100 ms",
-            "Status": "grün"
-          }
-        }
-      },
-      {
-        "ID": 9,
-        "Leistung": {
-          "Score": "21/22"
-        },
-        "Messwerte": {
-          "TotalBlockingTime": {
-            "Wert": "90 ms",
+            "Wert": "110 ms",
             "Status": "grün"
           },
           "CumulativeLayoutShift": {
@@ -161,13 +141,13 @@
         }
       },
       {
-        "ID": 10,
+        "ID": 8,
         "Leistung": {
           "Score": "21/22"
         },
         "Messwerte": {
           "TotalBlockingTime": {
-            "Wert": "100 ms",
+            "Wert": "120 ms",
             "Status": "grün"
           },
           "CumulativeLayoutShift": {
@@ -175,7 +155,47 @@
             "Status": "grün"
           },
           "InteractionToNextPaint": {
-            "Wert": "90 ms",
+            "Wert": "80 ms",
+            "Status": "grün"
+          }
+        }
+      },
+      {
+        "ID": 9,
+        "Leistung": {
+          "Score": "21/22"
+        },
+        "Messwerte": {
+          "TotalBlockingTime": {
+            "Wert": "120 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "InteractionToNextPaint": {
+            "Wert": "80 ms",
+            "Status": "grün"
+          }
+        }
+      },
+      {
+        "ID": 10,
+        "Leistung": {
+          "Score": "21/22"
+        },
+        "Messwerte": {
+          "TotalBlockingTime": {
+            "Wert": "130 ms",
+            "Status": "grün"
+          },
+          "CumulativeLayoutShift": {
+            "Wert": "0",
+            "Status": "grün"
+          },
+          "InteractionToNextPaint": {
+            "Wert": "80 ms",
             "Status": "grün"
           }
         }
