@@ -10,6 +10,7 @@ import { BlogService, BlogPost } from '../services/blog.service';
   templateUrl: './blog-overview.component.html',
   styleUrl: './blog-overview.component.css'
 })
+
 export class BlogOverviewComponent implements OnInit {
   private blogService = inject(BlogService);
 
