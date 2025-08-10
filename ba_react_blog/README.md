@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+# React Blog Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Eine moderne Blog-Anwendung entwickelt mit React 19.1.0 für Performance-Vergleiche zwischen verschiedenen Frontend-Frameworks.
 
-## Available Scripts
+## Was ist diese Anwendung?
 
-In the project directory, you can run:
+Diese React-Anwendung ist ein vollständig funktionaler Blog mit 50 Artikeln, der speziell für Performance-Tests und Vergleiche zwischen verschiedenen Frontend-Frameworks entwickelt wurde. Die Anwendung demonstriert moderne Web-Entwicklungspraktiken und bietet eine realistische Testumgebung für Performance-Messungen.
 
-### `npm start`
+### Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Startseite - Blog-Übersicht:**
+![React Blog Startseite](public/react_startseite.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Blog-Detailansicht:**
+![React Blog Detail](public/react_blog.png)
 
-### `npm test`
+### Hauptfunktionen
+- **Blog-Übersicht**: Zeigt alle 50 Artikel in einem responsiven Grid-Layout
+- **Blog-Detailansicht**: Vollständige Artikelansicht mit Kommentaren
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Schnellstart mit Docker
 
-### `npm run build`
+### 1. Docker Image bauen
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Im Verzeichnis der Anwendung
+cd ba_react_blog
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Docker Image bauen
+docker build -t react-blog .
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Optional: Mit spezifischem Tag
+docker build -t react-blog:v1.0 .
+```
 
-### `npm run eject`
+### 2. Anwendung starten
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# Container starten
+docker run -d -p 8080:80 --name react-blog-container react-blog
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Oder mit Port-Mapping nach Wahl
+docker run -d -p 3000:80 --name react-blog-container react-blog
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Anwendung aufrufen
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Öffnen Sie Ihren Browser und navigieren Sie zu:
+- **Lokaler Port 8080**: `http://localhost:8080`
+- **Oder Port 3000**: `http://localhost:3000` (falls Sie den Port geändert haben)
 
-## Learn More
+### 4. Container verwalten
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Container stoppen
+docker stop react-blog-container
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Container starten
+docker start react-blog-container
 
-### Code Splitting
+# Container entfernen
+docker rm react-blog-container
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Alle laufenden Container anzeigen
+docker ps
 
-### Analyzing the Bundle Size
+# Container-Logs anzeigen
+docker logs react-blog-container
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Entwicklungsumgebung
 
-### Making a Progressive Web App
+### Voraussetzungen
+- Node.js (Version 18 oder höher)
+- npm oder yarn
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Lokale Entwicklung
 
-### Advanced Configuration
+```bash
+# Dependencies installieren
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Entwicklungsserver starten
+npm start
 
-### Deployment
+# Anwendung öffnet sich automatisch unter http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Build für Produktion
 
-### `npm run build` fails to minify
+```bash
+# Produktions-Build erstellen
+npm run build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Build-Verzeichnis: build/
+```
+
+### Tests ausführen
+
+```bash
+# Test-Suite starten
+npm test
+
+# Tests im Watch-Modus
+npm test -- --watch
+```
+
+## Docker-Konfiguration
+
+### Dockerfile Details
+
+Das Dockerfile verwendet einen mehrstufigen Build-Prozess:
+1. **Build-Stage**: Node.js 20 Alpine-basierter Build der React 19.1.0-Anwendung
+2. **Production-Stage**: Nginx-basierter Webserver für optimale Performance
+
+### Nginx-Konfiguration
+
+Die Anwendung wird über Nginx ausgeliefert, was eine optimale Performance und Sicherheit gewährleistet.
+
+## Projektstruktur
+
+```
+ba_react_blog/
+├── src/                          # React-Quellcode
+│   ├── App.js                    # Haupt-App-Komponente
+│   ├── BlogOverview.js           # Blog-Übersichtsseite
+│   ├── BlogDetail.js             # Blog-Detailseite
+│   ├── PerformanceMonitor.js     # Performance-Überwachung
+│   ├── blogData.json             # Blog-Daten (50 Artikel)
+│   └── index.js                  # App-Einstiegspunkt
+├── public/                       # Statische Assets
+│   ├── index.html                # HTML-Template
+│   ├── react_blog.png            # Blog-Detail Screenshot
+│   └── react_startseite.png      # Startseite Screenshot
+├── Dockerfile                    # Docker-Build-Konfiguration
+├── nginx.conf                    # Nginx-Server-Konfiguration
+└── package.json                  # Node.js-Dependencies
+```

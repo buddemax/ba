@@ -16,9 +16,8 @@ Diese Angular-Anwendung ist ein vollständig funktionaler Blog mit 50 Artikeln, 
 
 ### Hauptfunktionen
 - **Blog-Übersicht**: Zeigt alle 50 Artikel in einem responsiven Grid-Layout
-- **Artikel-Details**: Vollständige Artikelansicht mit Markdown-Formatierung
-- **Kommentarsystem**: Anzeige von Kommentaren zu jedem Artikel
-- **Responsive Design**: Optimiert für alle Geräte und Bildschirmgrößen
+- **Kommentarsystem**: Anzeige von Kommentaren
+
 
 ## Schnellstart mit Docker
 
