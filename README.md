@@ -1,80 +1,101 @@
-# Masterarbeit „Wissenschaftskommunikation und Verbreitung in den Berliner Hochschulen“ - Daten
+# Vergleich der Performance von Single-Page-Applications – React, Angular und Vue
 
-## Autor*innen
+Bachelorarbeit von Max Budde (Wirtschaftsinformatik, HTW Berlin)
 
-**Authorin:**
-Anna Schmidt
-Masterstudiengang Wirtschaftskommunikation
+Berlin, 12.08.2025
 
-**Betreurer:**
-Helmut Beispielmann
-ORCID: 0002-3456-3021-0093
-Kontaktadresse: Helmut.Beispielmann@htw-berlin.de
+Erstgutachter: Prof. Dr. Arif Wider • Zweitgutachter: Lucas Larisch
 
-**Institution:**
-Hochschule für Technik und Wirtschaft Berlin
-ROR: <https://ror.org/01xzwj424>
+Dieses Repository enthält den vollständigen Quellcode, Messartefakte und die Dokumentation zur Bachelorarbeit „Vergleich der Performance von Single-Page-Applications – eine Analyse der Frameworks React, Angular und Vue“.
 
-## Datensatz
+Die Arbeit untersucht die Performance-Eigenschaften der Frameworks React, Angular und Vue im klassischen Client‑Side‑Rendering (CSR) anhand dreier funktionsgleicher Prototypen (Blog‑Applikationen) und reproduzierbarer Messläufe mit Lighthouse.
 
-Es wurden 19 semi-strukturierten Interviews mit den Experten im Thema „Wissenschaftskommunikation und Verbreitung“ mit der Videokonferenz-Software durchgeführt und aufgezeichnet. Die Dateien wurden dann transkribiert und im Rahmen des Grounded Theory Ansatz analysiert . Der Datensatz beinhaltet die Video-Aufzeichnungen, die Transkripte sowie die Projekt-Datei aus der Analyse-Software.
+Weitere Hintergrundinformationen und ausführliche Beschreibung der Methodik finden sich in `arbeit.txt`.
 
-**Sprache:** Deutsch.
+### Inhalte
+- `ba_react_blog` – React 19.1.0 Prototyp (Blog)
+- `ba_angular_blog` – Angular 19.2.0 Prototyp (Blog)
+- `ba_vue_blog` – Vue 3.5.17 Prototyp (Blog)
+- `docker-compose.yml` – Start aller drei Prototypen via Docker Compose
+- `arbeit.txt` – Text der Bachelorarbeit
 
-## Datenzugriff und Datenschutz
+Jedes Unterprojekt enthält eine eigene `README.md` mit Details zum lokalen Start, Build und Docker‑Setup sowie einen Ordner `measurements` mit den Ergebnis‑PDFs und JSON‑Aggregationen.
 
-Daten wurden selbst erhoben. Datensatz ist eingeschränkt zugreifbar unter <https://doi.org/10.9999/htwberlin.123456>. Für Lizenzvereinbarung siehe: LICENSE-Daten.txt
+## Schnellstart (Docker Compose)
 
-Die Einwilligungserklärungen der Interviewenden wurden archiviert und sind nach Absprache mit Prof. Beispielmann (Kontaktadresse: Helmut.Beispielmann@htw-berlin.de) abrufbar.
+Voraussetzungen: Docker Desktop (oder Docker Engine) mit Compose.
 
-Die Daten sollen nach 10 Jahren Aufbewahrungszeit gelöscht werden: Juni 2034.
+```bash
+cd ba
+docker compose up -d --build
+```
 
-## Zeitraum
+Anwendungen nach dem Start:
+- Angular: `http://localhost:3001`
+- React: `http://localhost:3002`
+- Vue: `http://localhost:3003`
 
-Die Interviews wurden am 25.07.2024 bis 07.08.2024 durchgeführt und bis Mitte August transkribiert.
-Die Datenanalyse fand im September 2024 statt.
+Verwaltung:
+```bash
+# Logs anzeigen
+docker compose logs -f
 
-## Angewendete Software
+# Container stoppen und entfernen
+docker compose down
+```
 
-* Die Aufnahmen: Videokonferenz Software Zoom (Ver. 5.4.3) <https://www.zoom.com/de>
-* Transkription: f4x Software <https://www.audiotranskription.de/>
-* Analyse:  QualCoder Ver. 3.6 <https://github.com/ccbogel/QualCoder/wiki>
+Hinweis: Jede App wird als Production‑Build über Nginx ausgeliefert (mehrstufige Dockerfiles in den Unterordnern).
 
-## Datenformate und -größe
+## Einzelne Projekte lokal starten
 
-Interviews liegen in folgenden Formaten vor:
+Bitte die jeweiligen Projekt‑READMEs lesen:
 
-* Video-Dateien (.mp4): 100 MB pro Interview,
-* die Transkripte (.pdf): 5 MB (alle zusammen),
-* Analyse als QualCoder Datei (.qda): 3 MB
+- React: `ba_react_blog/README.md`
+- Angular: `ba_angular_blog/README.md`
+- Vue: `ba_vue_blog/README.md`
 
-## Qualitätssicherungsmaßnahmen
+Kurzüberblick der Dev‑Kommandos:
+- React: `npm install` und `npm start` → `http://localhost:3000`
+- Angular: `npm install` und `npm start` (oder `ng serve`) → `http://localhost:4200`
+- Vue: `npm install` und `npm run dev` → `http://localhost:5173`
 
-Manuelle Prüfung und Korrektur der Transkripte, insbesondere:
+Empfohlene Umgebung (für Reproduzierbarkeit der Messungen):
+- macOS 15.0 auf Apple M1 (8 GB RAM)
+- Node.js 20.18.0, npm 10.8.2
+- Google Chrome 138 (Lighthouse 12.6.0)
 
-* Korrigieren von Worten oder Absätzen, als diese falsch transkribiert worden sind;
-* Korrigieren der Zuordnung des Gesprochenen;
-* Ergänzen von Interjektionen (Ausruf- und Empfindungsworten).
+## Messdaten und Methodik
 
-## Ordnerstruktur & Dateibennenungskonvention
+Die Messungen wurden in zwei Durchläufen je Framework durchgeführt und liegen in den Ordnern `ba_*/measurements` als PDFs und JSON vor:
 
-Für allen Dateien:
+- Erster Testlauf (10 Messläufe): FCP, LCP, Speed Index
+- Zweiter Testlauf (10 Messläufe): TBT, CLS, INP
 
-- X -- Nummer des Interviews
-- JJJJ-MM-TT -- Datum der Dateierstellung
+Die Prototypen sind funktionsgleich aufgebaut: Startseite mit Beitragsübersicht (inkl. Hero‑Bild und Überschrift), Detailseite mit vollständigem Beitrag und Kommentaren. Bilder werden über Picsum‑Placeholders geladen, um ein realitätsnahes Netzwerkmuster abzubilden.
 
-**Ordner:** Aufzeichnungen
-`Int[X]_Aufzeichnung_JJJJ-MM-TT.mp4`
+Datenquellen der 50 Blog‑Einträge und 10 Kommentare (für Beitrag 1):
+- React: `ba_react_blog/src/blogData.json`
+- Angular: `ba_angular_blog/src/assets/posts.json`
+- Vue: `ba_vue_blog/src/assets/posts.json`
 
-- unbearbeitete Videodaten aus den Interviews
+Die Production‑Builds der Frameworks nutzen Minification, Tree‑Shaking und Code‑Splitting (framework‑typisch) und werden über Nginx bereitgestellt.
 
-**Ordner:** Transkripte
-`Int[X]_Transkript_[roh/fertig]_JJJJ-MM-TT.pdf`
+## Sicherheits‑ und Datenschutz‑Hinweise
+- Die Prototypen sind rein statische Frontends ohne Backend und ohne Tracking.
+- Externe Ressourcen: Platzhalter‑Bilder von `picsum.photos`.
 
-- rohe und manuell korrigierte Transkripte (2 Dateien pro Interview)
-- roh -- von f4x generierte Textdatei
-- fertig -- manuell korrigierte Version der rohen Datei
 
-**Ordner:** wisskommprojekt.qda
+## Ordnerstruktur (Ausschnitt)
 
-- von QualCoder generierter Ordner mit Analysedaten
+```
+ba/
+├── ba_angular_blog/
+│   └── measurements/        # Messartefakte Angular
+├── ba_react_blog/
+│   └── measurements/        # Messartefakte React
+├── ba_vue_blog/
+│   └── measurements/        # Messartefakte Vue
+├── docker-compose.yml
+├── arbeit.txt               # Vollständiger Text der Bachelorarbeit
+└── README.md (dieses Dokument)
+```
