@@ -82,17 +82,14 @@ Die Production‑Builds der Frameworks nutzen Minification, Tree‑Shaking und C
 - Externe Ressourcen: Platzhalter‑Bilder von `PICSUM API`.
 
 
-## Ordnerstruktur (Ausschnitt)
+## KI-Nutzung
 
-```
-ba/
-├── ba_angular_blog/
-│   └── measurements/        # Messartefakte Angular
-├── ba_react_blog/
-│   └── measurements/        # Messartefakte React
-├── ba_vue_blog/
-│   └── measurements/        # Messartefakte Vue
-├── docker-compose.yml
-├── arbeit.txt               # Vollständiger Text der Bachelorarbeit
-└── README.md (dieses Dokument)
+Für die Unterstützung beim Programmieren wurde die KI-IDE Cursor verwendet. Folgende Aufgaben hat Cursor dabei übernommen:
+- Code erstellen 
+- Code auf Richtigkeit überprüfen, Fehler finden und ggf. Optimierung vorschlagen
+- Vergleich, ob alle drei Prototypen möglichst gleich aufgebaut sind
+- Erstellung von Kommentaren
+- Unterstützung bei der Erstellung der README Dateien
+- Überprüfung, ob Best Practices erfüllt werden
+
 ```
