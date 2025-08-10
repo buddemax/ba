@@ -94,15 +94,6 @@ npm run build
 
 # Build-Verzeichnis: build/
 ```
-
-### Tests ausführen
-
-```bash
-# Test-Suite starten
-npm test
-
-# Tests im Watch-Modus
-npm test -- --watch
 ```
 
 ## Docker-Konfiguration
@@ -115,7 +106,7 @@ Das Dockerfile verwendet einen mehrstufigen Build-Prozess:
 
 ### Nginx-Konfiguration
 
-Die Anwendung wird über Nginx ausgeliefert, was eine optimale Performance und Sicherheit gewährleistet.
+Die Anwendung wird über Nginx ausgeliefert
 
 ## Projektstruktur
 
