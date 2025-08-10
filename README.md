@@ -10,14 +10,11 @@ Dieses Repository enthält den vollständigen Quellcode, Messartefakte und die D
 
 Die Arbeit untersucht die Performance-Eigenschaften der Frameworks React, Angular und Vue im klassischen Client‑Side‑Rendering (CSR) anhand dreier funktionsgleicher Prototypen (Blog‑Applikationen) und reproduzierbarer Messläufe mit Lighthouse.
 
-Weitere Hintergrundinformationen und ausführliche Beschreibung der Methodik finden sich in `arbeit.txt`.
-
 ### Inhalte
 - `ba_react_blog` – React 19.1.0 Prototyp (Blog)
 - `ba_angular_blog` – Angular 19.2.0 Prototyp (Blog)
 - `ba_vue_blog` – Vue 3.5.17 Prototyp (Blog)
 - `docker-compose.yml` – Start aller drei Prototypen via Docker Compose
-- `arbeit.txt` – Text der Bachelorarbeit
 
 Jedes Unterprojekt enthält eine eigene `README.md` mit Details zum lokalen Start, Build und Docker‑Setup sowie einen Ordner `measurements` mit den Ergebnis‑PDFs und JSON‑Aggregationen.
 
@@ -82,7 +79,7 @@ Die Production‑Builds der Frameworks nutzen Minification, Tree‑Shaking und C
 
 ## Sicherheits‑ und Datenschutz‑Hinweise
 - Die Prototypen sind rein statische Frontends ohne Backend und ohne Tracking.
-- Externe Ressourcen: Platzhalter‑Bilder von `picsum.photos`.
+- Externe Ressourcen: Platzhalter‑Bilder von `PICSUM API`.
 
 
 ## Ordnerstruktur (Ausschnitt)
