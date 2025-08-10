@@ -1,122 +1,127 @@
 # Angular Blog Application
 
-Eine moderne Blog-Anwendung entwickelt mit Angular für Performance-Vergleiche zwischen verschiedenen Frontend-Frameworks.
+Eine moderne Blog-Anwendung entwickelt mit Angular 19.2.0 für Performance-Vergleiche zwischen verschiedenen Frontend-Frameworks.
 
-## Features
+## Was ist diese Anwendung?
 
-### Startseite (Blog-Übersicht)
-- **Hero-Bild**: Vollbreite Hero-Sektion mit dynamischem Hintergrundbild
-- **Responsive Grid**: Automatisch anpassendes Grid-Layout für alle Bildschirmgrößen
-- **Blog-Karten**: Jede Karte zeigt Bild, Titel, Vorschau und "Weiterlesen"-Link
-- **Lazy Loading**: Bilder werden mit Lazy Loading für optimale Performance geladen
+Diese Angular-Anwendung ist ein vollständig funktionaler Blog mit 50 Artikeln, der speziell für Performance-Tests und Vergleiche zwischen verschiedenen Frontend-Frameworks entwickelt wurde. Die Anwendung demonstriert moderne Web-Entwicklungspraktiken und bietet eine realistische Testumgebung für Performance-Messungen.
 
-### Detailseite (Einzelartikel)
-- **Vollständiger Artikel**: Anzeige des kompletten Artikelinhalts mit Markdown-Formatierung
-- **Kommentarsektion**: Anzeige aller vorhandenen Kommentare mit Autor und Text
-- **Navigation**: "Zurück zur Startseite"-Link für einfache Navigation
-- **404-Behandlung**: Benutzerfreundliche 404-Seite für nicht gefundene Artikel
+### Screenshots
 
-### Design & UX
-- **Moderne Farbpalette**: Blau-graue Farbpalette für professionelles Aussehen
-- **Responsive Design**: Vollständig responsive für Desktop, Tablet und Mobile
-- **System-Schriftarten**: Optimierte Lesbarkeit durch System-Schriftarten
-- **Smooth Transitions**: Sanfte Übergänge und Hover-Effekte
+**Startseite - Blog-Übersicht:**
+![Angular Blog Startseite](public/angular_startseite.png)
 
-## Technische Details
+**Blog-Detailansicht:**
+![Angular Blog Detail](public/angular_blog.png)
 
-### Architektur
-- **Angular 17**: Standalone Components mit moderner Angular-Architektur
-- **TypeScript**: Vollständig typisierte Anwendung
-- **HTTP Client**: Laden von JSON-Daten aus statischer Datei
-- **Router**: Client-side Routing zwischen Übersicht und Detailseiten
+### Hauptfunktionen
+- **Blog-Übersicht**: Zeigt alle 50 Artikel in einem responsiven Grid-Layout
+- **Artikel-Details**: Vollständige Artikelansicht mit Markdown-Formatierung
+- **Kommentarsystem**: Anzeige von Kommentaren zu jedem Artikel
+- **Responsive Design**: Optimiert für alle Geräte und Bildschirmgrößen
 
-### Performance-Features
-- **21 Artikel**: Umfangreiche Datenmenge für realistische Performance-Tests
-- **Externe Bilder**: Verwendung von Picsum für zufällige Bilder
-- **Lazy Loading**: Optimierte Bildladung
-- **Caching**: Service-basiertes Caching der Blog-Daten
+## Schnellstart mit Docker
 
-### Datenstruktur
-```typescript
-interface BlogPost {
-  id: number;
-  title: string;
-  cover: string;
-  content: string; // Markdown-Format
-  comments: Comment[];
-}
+### 1. Docker Image bauen
 
-interface Comment {
-  id: number;
-  author: string;
-  text: string;
-}
+```bash
+# Im Verzeichnis der Anwendung
+cd ba_angular_blog
+
+# Docker Image bauen
+docker build -t angular-blog .
+
+# Optional: Mit spezifischem Tag
+docker build -t angular-blog:v1.0 .
 ```
 
-## Installation & Setup
+### 2. Anwendung starten
+
+```bash
+# Container starten
+docker run -d -p 8080:80 --name angular-blog-container angular-blog
+
+# Oder mit Port-Mapping nach Wahl
+docker run -d -p 3000:80 --name angular-blog-container angular-blog
+```
+
+### 3. Anwendung aufrufen
+
+Öffnen Sie Ihren Browser und navigieren Sie zu:
+- **Lokaler Port 8080**: `http://localhost:8080`
+- **Oder Port 3000**: `http://localhost:3000` (falls Sie den Port geändert haben)
+
+### 4. Container verwalten
+
+```bash
+# Container stoppen
+docker stop angular-blog-container
+
+# Container starten
+docker start angular-blog-container
+
+# Container entfernen
+docker rm angular-blog-container
+
+# Alle laufenden Container anzeigen
+docker ps
+
+# Container-Logs anzeigen
+docker logs angular-blog-container
+```
+
+## Entwicklungsumgebung
 
 ### Voraussetzungen
 - Node.js (Version 18 oder höher)
 - npm oder yarn
+- Angular CLI (global installiert)
 
-### Installation
+### Lokale Entwicklung
+
 ```bash
 # Dependencies installieren
 npm install
 
 # Entwicklungsserver starten
 npm start
+# Oder: ng serve
 
-# Build für Produktion
-npm run build
+# Anwendung öffnet sich automatisch unter http://localhost:4200
 ```
 
-### Entwicklung
+### Build für Produktion
+
 ```bash
-# Entwicklungsserver mit Live Reload
-ng serve
+# Produktions-Build erstellen
+npm run build
+# Oder: ng build --configuration production
 
-# Build mit Optimierungen
-ng build --configuration production
-
-# Tests ausführen
-ng test
+# Build-Verzeichnis: dist/ba-angular-blog/
 ```
+
+## Docker-Konfiguration
+
+### Dockerfile Details
+
+Das Dockerfile verwendet einen mehrstufigen Build-Prozess:
+1. **Build-Stage**: Node.js-basierter Build der Angular 19.2.0-Anwendung
+2. **Production-Stage**: Nginx-basierter Webserver für optimale Performance
 
 ## Projektstruktur
 
 ```
-src/
-├── app/
-│   ├── blog-overview/          # Blog-Übersichtsseite
-│   ├── blog-detail/           # Blog-Detailseite
-│   ├── services/
-│   │   └── blog.service.ts    # Daten-Service
-│   ├── app.component.*        # Haupt-App-Komponente
-│   ├── app.routes.ts          # Routing-Konfiguration
-│   └── app.config.ts          # App-Konfiguration
-├── assets/
-│   └── posts.json             # Blog-Daten (21 Artikel)
-└── styles.css                 # Globale Styles
+ba_angular_blog/
+├── src/                          # Angular-Quellcode
+│   ├── app/
+│   │   ├── blog-overview/        # Blog-Übersichtsseite
+│   │   ├── blog-detail/          # Blog-Detailseite
+│   │   └── services/             # Daten-Services
+│   └── assets/
+│       └── posts.json            # Blog-Daten (50 Artikel)
+├── Dockerfile                    # Docker-Build-Konfiguration
+├── nginx.conf                    # Nginx-Server-Konfiguration
+├── package.json                  # Node.js-Dependencies
+└── angular.json                  # Angular-Konfiguration
 ```
 
-## Performance-Aspekte
-
-Diese Anwendung ist speziell für Performance-Vergleiche konzipiert:
-
-1. **Initiale Ladezeit**: 21 Artikel mit entsprechenden Bildern
-2. **Navigation**: Client-side Routing zwischen Seiten
-3. **Rendering**: Umfangreicher Textinhalt mit Markdown-Formatierung
-4. **Bildressourcen**: Externe Bilder in verschiedenen Größen
-5. **Responsive Layout**: Automatische Anpassung an Bildschirmgrößen
-
-## Browser-Support
-
-- Chrome (neueste Version)
-- Firefox (neueste Version)
-- Safari (neueste Version)
-- Edge (neueste Version)
-
-## Lizenz
-
-Dieses Projekt dient zu Demonstrations- und Vergleichszwecken.
